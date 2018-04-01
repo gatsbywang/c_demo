@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-
+/*
 int strlen_(char *str) {
 	//这种方式不行
 	printf("%d", sizeof(str) / sizeof(char));
@@ -43,7 +43,7 @@ void cmp() {
 		printf("不相等");
 	}
 
-	int rc = _strcmpi(str1, str2); //strcmpi  不区分大小写的  android.ndk 没有_strcmpi  使用strcasecmp代替
+	 rc = _strcmpi(str1, str2); //strcmpi  不区分大小写的  android.ndk 没有_strcmpi  使用strcasecmp代替
 	if (rc == 0) {
 		printf("相等");
 	}
@@ -52,9 +52,9 @@ void cmp() {
 	}
 
 	//比较前几个
-	int rc = strncmp(str1,str2,1);//count 代表比较字符串的个数，区分大小写
+	 rc = strncmp(str1,str2,1);//count 代表比较字符串的个数，区分大小写
 
-	int rc = _strnicmp(str1, str2, 1);//count 代表比较字符串的个数，不区分大小写
+	 rc = _strnicmp(str1, str2, 1);//count 代表比较字符串的个数，不区分大小写
 }
 
 //查找
@@ -118,12 +118,42 @@ void lower(char* dest,char* source) {
 
 }
 
+char * str_replace(char *str, char *src, char *dst) {
+	//1、 有没有aa
+	char * pos = strstr(str,src);
+	if (!pos ) {
+		return;
+	}
+	//2、计算新的数组大小,原来数组的大小-被替换的大小+替换的大小
+	int newArrSize = strlen(str) - strlen(src) + strlen(dst);
+	char *result = (char*)malloc(sizeof(char)*newArrSize);
+	
+	//3、进行拼接
+	int start_end_position = pos - str;
+	char *start = sub(str,0,start_end_position);
+	int end_start_position = start_end_position + strlen(dst);
+	char* end = sub(str, end_start_position,strlen(str));
+	strcpy(result,start);
+	strcat(result,dst);
+	strcat(result,end);
+	//4、多个替换？
+	return str_replace(result,src,dst);
+}
+void customStrcmp() {
+
+	//aabb 中的aa 替换为cc 字符串替换
+
+	char * str = str_replace("aabbaabbaabb","aa","cc");
+	printf("%s", str);
+
+}
+
 
 void main() {
 
 	printf("Hello world");
 
-	//1、字符串结尾是‘\0’
+/*	//1、字符串结尾是‘\0’
 	char str[] = { 'A','A','A','A','A','A','A','\0'};
 
 	printf("%s",str);
@@ -141,6 +171,10 @@ void main() {
 	char *name = "Darren";
 	printf("%d", strlen(name));//strlen 原理 是通过判断‘\0’
 
+
+	customStrcmp();
+
+
 	getchar();
-}
+}*/
 
