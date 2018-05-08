@@ -61,7 +61,7 @@ void cmp() {
 void find() {
 	const char *str1 = "xxx 123123";
 	const char *str2 = "123";
-	const char *str3 = strstr(str1,str2); //返回的是字符串第一次出现的位置 其实就出现的位置指针
+	const char *str3 = strstr(str1,str2); //返回的 是字符串第一次出现的位置 其实就出现的位置指针
 
 	//计算位置，指针相减
 	int position = str3 - str2;
@@ -131,6 +131,8 @@ char * str_replace(char *str, char *src, char *dst) {
 	//3、进行拼接
 	int start_end_position = pos - str;
 	char *start = sub(str,0,start_end_position);
+
+
 	int end_start_position = start_end_position + strlen(dst);
 	char* end = sub(str, end_start_position,strlen(str));
 	strcpy(result,start);

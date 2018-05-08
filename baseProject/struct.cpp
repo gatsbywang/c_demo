@@ -66,6 +66,26 @@ enum CommentType
 	TEXT,TEXT_IMAGE,IMAGE
 };
 
+
+
+struct Worker5
+{
+	int year;
+	int month;
+	int day;
+	char name[5];
+};
+
+struct Worker6
+{
+	int number;
+	char sex;
+	int age;
+	char name[10];
+
+	Worker5 worker;
+};
+
 void main() {
 	//1、
 	struct Worker worker = { "huadai",23,1000};
@@ -117,13 +137,15 @@ void main() {
 
 	//8、别名方式
 	 Worker_ worker8 = { "huadai",23,1000 };
-	 Worker_1 worker = (Worker_ *)malloc(sizeof(Worker));//指针别名
+	// Worker_1 worker = (Worker_ *)malloc(sizeof(Worker));//指针别名
 
 	 //9、联合体 计算（取最大值并累加到能被最大基本数据类型（比如最大基本类型为8，那就应该被8整除）整除）
 	 Person person;
 	 int sizeunion = sizeof(person);
 
 	 //10、
+	 printf("size = %d", sizeof(Worker6)); sizeof(Worker6);
+
 
 
 	getchar();
