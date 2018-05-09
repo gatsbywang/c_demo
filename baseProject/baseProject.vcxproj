@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Array.c" />
     <ClCompile Include="memory.cpp" />
     <ClCompile Include="random.cpp" />
     <ClCompile Include="string.cpp" />

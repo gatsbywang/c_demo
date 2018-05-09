@@ -86,7 +86,7 @@ struct Worker6
 	Worker5 worker;
 };
 
-void main() {
+/*void main() {
 	//1¡¢
 	struct Worker worker = { "huadai",23,1000};
 	
@@ -149,4 +149,4 @@ void main() {
 
 
 	getchar();
-}
+}*/
