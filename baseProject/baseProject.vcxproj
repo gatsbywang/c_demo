@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -116,11 +116,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Array.c" />
+    <ClCompile Include="construct.cpp" />
     <ClCompile Include="memory.cpp" />
+    <ClCompile Include="pointer.c" />
     <ClCompile Include="random.cpp" />
+    <ClCompile Include="Simple_cplusplus.cpp" />
     <ClCompile Include="string.cpp" />
-    <ClCompile Include="struct.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="struct.c" />
+    <ClCompile Include="Student.cpp" />
+    <ClCompile Include="test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
